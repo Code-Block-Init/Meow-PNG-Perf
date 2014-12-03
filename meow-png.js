@@ -473,8 +473,29 @@ MeowPNG(function() {
       };
       exports.MeowPNGCompress = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
       {
+      	var Meow_OriginalSize = Meow_Hello.Meow_SyncStat(Meow_InputFile).size;
+      	exports.Meow_Async.Meow_Series([
+      		exports.Meow_PngOpt.Meow_Bind(null, Meow_InputFile, Meow_OutputFile, Meow_Options),
+      		exports.Meow_PngRuby.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options),
+      		exports.Meow_PngQuack.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options)
+      		], function(err)
+      		{
+      			Meow_Saved = Meow_OriginalSize - Meow_Hello.Meow_SyncStat(Meow_OutputFile).size;
+      			if(Meow_Saved < 10)
+      			{
+      				exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "Already optimized", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
+      			}
+      			else
+      			{
+      				exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "(saved "+ Meow_Saved+ "Bytes)", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
+      			}
+      			new Meow_Fini(err);
+      		});
+      	};
+      	exports.Meow_PngOpt = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
+      	{
 
-      	// Still coding now... Will be updated soon! (^_^)
-      };
+      		// Still coding now... Will be updated soon!
+      	};
     }
  });
