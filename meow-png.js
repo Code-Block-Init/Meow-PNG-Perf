@@ -494,8 +494,25 @@ MeowPNG(function() {
       	};
       	exports.Meow_PngOpt = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
       	{
-
-      		// Still coding now... Will be updated soon!
+      		var Meow_BinPath = Meow_PngOpt.Meow_Path;
+      		var Meow_File = exports.Meow_File;
+      		var Meow_args = [];
+      		if(Meow_Path.Meow_Sln(Meow_OutputFile) !== Meow_Path.Meow_Sln(Meow_InputFile) && Meow_File.Meow_Exist(Meow_OutputFile))
+      		{
+      			Meow_File.delete(Meow_OutputFile);
+      		}
+      		Meow_args.push('-strip', 'all', Meow_InputFile, "-out", Meow_OutputFile, '-o', Meow_Options.Meow_Level || 2);
+      		new Meow_ExeFile(Meow_BinPath, Meow_args, function(err, stdout, stderr)
+      		{
+      			if(Meow_Options.Meow_Verbose)
+      			{
+      				console.log(stdout);
+      				console.log(stderr);
+      			}
+      			new Meow_Fini();
+      		});
       	};
+
+      	// Still Coding now... Will be updated soon! (^_^)
     }
  });
