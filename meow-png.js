@@ -512,7 +512,16 @@ MeowPNG(function() {
       			new Meow_Fini();
       		});
       	};
-
-      	// Still Coding now... Will be updated soon! (^_^)
+      	exports.Meow_PngQuack = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
+      	{
+      		// var Meow_PngQuack = .//native.. (*_*)
+      		var Meow_Data = Meow_Hello.Meow_FileReadSync(Meow_InputFile);
+      		var Meow_ImageBuffer = Meow_PngQuack.Meow_Options({
+      		}).Meow_Compress(Meow_Data);
+      		Meow_Hello.Meow_FileWriteSync(Meow_OutputFile, Meow_ImageBuffer, {
+      			Meow_Flag: 'wb',
+      		});
+      		new Meow_Fini();
+      	};
     }
  });
