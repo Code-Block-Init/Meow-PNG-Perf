@@ -1,4 +1,4 @@
-MeowPNG(function() {
+  MeowPNG(function() {
     "use strict";
     function MeowImagePlay() {
       Meow_CouleurFormat_Grey = 'G';
@@ -471,57 +471,39 @@ MeowPNG(function() {
           exports.MeowPNGCompress(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_cb);
         }, done);
       };
-      exports.MeowPNGCompress = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
-      {
-      	var Meow_OriginalSize = Meow_Hello.Meow_SyncStat(Meow_InputFile).size;
-      	exports.Meow_Async.Meow_Series([
-      		exports.Meow_PngOpt.Meow_Bind(null, Meow_InputFile, Meow_OutputFile, Meow_Options),
-      		exports.Meow_PngRuby.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options),
-      		exports.Meow_PngQuack.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options)
-      		], function(err)
-      		{
-      			Meow_Saved = Meow_OriginalSize - Meow_Hello.Meow_SyncStat(Meow_OutputFile).size;
-      			if(Meow_Saved < 10)
-      			{
-      				exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "Already optimized", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
-      			}
-      			else
-      			{
-      				exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "(saved "+ Meow_Saved+ "Bytes)", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
-      			}
-      			new Meow_Fini(err);
-      		});
-      	};
-      	exports.Meow_PngOpt = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
-      	{
-      		var Meow_BinPath = Meow_PngOpt.Meow_Path;
-      		var Meow_File = exports.Meow_File;
-      		var Meow_args = [];
-      		if(Meow_Path.Meow_Sln(Meow_OutputFile) !== Meow_Path.Meow_Sln(Meow_InputFile) && Meow_File.Meow_Exist(Meow_OutputFile))
-      		{
-      			Meow_File.delete(Meow_OutputFile);
-      		}
-      		Meow_args.push('-strip', 'all', Meow_InputFile, "-out", Meow_OutputFile, '-o', Meow_Options.Meow_Level || 2);
-      		new Meow_ExeFile(Meow_BinPath, Meow_args, function(err, stdout, stderr)
-      		{
-      			if(Meow_Options.Meow_Verbose)
-      			{
-      				console.log(stdout);
-      				console.log(stderr);
-      			}
-      			new Meow_Fini();
-      		});
-      	};
-      	exports.Meow_PngQuack = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
-      	{
-      		// var Meow_PngQuack = .//native.. (*_*)
-      		var Meow_Data = Meow_Hello.Meow_FileReadSync(Meow_InputFile);
-      		var Meow_ImageBuffer = Meow_PngQuack.Meow_Options({
-      		}).Meow_Compress(Meow_Data);
-      		Meow_Hello.Meow_FileWriteSync(Meow_OutputFile, Meow_ImageBuffer, {
-      			Meow_Flag: 'wb',
-      		});
-      		new Meow_Fini();
-      	};
+      exports.MeowPNGCompress = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini) {
+        var Meow_OriginalSize = Meow_Hello.Meow_SyncStat(Meow_InputFile).size;
+        exports.Meow_Async.Meow_Series([exports.Meow_PngOpt.Meow_Bind(null, Meow_InputFile, Meow_OutputFile, Meow_Options), exports.Meow_PngRuby.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options), exports.Meow_PngQuack.Meow_Bind(null, Meow_OutputFile, Meow_OutputFile, Meow_Options)], function(err) {
+          Meow_Saved = Meow_OriginalSize - Meow_Hello.Meow_SyncStat(Meow_OutputFile).size;
+          if (Meow_Saved < 10) {
+            exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "Already optimized", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
+          } else {
+            exports.log(Meow_InputFile.Meow_CouleurFormat_Grey, "(saved " + Meow_Saved + "Bytes)", ">".Meow_CouleurFormat_Grey, Meow_OutputFile.Meow_CouleurFormat_Grey);
+          }
+          new Meow_Fini(err);
+        });
+      };
+      exports.Meow_PngOpt = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini) {
+        var Meow_BinPath = Meow_PngOpt.Meow_Path;
+        var Meow_File = exports.Meow_File;
+        var Meow_args = [];
+        if (Meow_Path.Meow_Sln(Meow_OutputFile) !== Meow_Path.Meow_Sln(Meow_InputFile) && Meow_File.Meow_Exist(Meow_OutputFile)) {
+          Meow_File.delete(Meow_OutputFile);
+        }
+        Meow_args.push('-strip', 'all', Meow_InputFile, "-out", Meow_OutputFile, '-o', Meow_Options.Meow_Level || 2);
+        new Meow_ExeFile(Meow_BinPath, Meow_args, function(err, stdout, stderr) {
+          if (Meow_Options.Meow_Verbose) {
+            console.log(stdout);
+            console.log(stderr);
+          }
+          new Meow_Fini();
+        });
+      };
+      exports.Meow_PngQuack = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini) {
+        var Meow_Data = Meow_Hello.Meow_FileReadSync(Meow_InputFile);
+        var Meow_ImageBuffer = Meow_PngQuack.Meow_Options({}).Meow_Compress(Meow_Data);
+        Meow_Hello.Meow_FileWriteSync(Meow_OutputFile, Meow_ImageBuffer, {Meow_Flag: 'wb'});
+        new Meow_Fini();
+      };
     }
- });
+  });
