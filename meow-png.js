@@ -1,5 +1,5 @@
 MeowPNG(function() {
-  "use strict";
+    "use strict";
     function MeowImagePlay() {
       Meow_CouleurFormat_Grey = 'G';
       Meow_CouleurFormat_Alpha = 'A';
@@ -448,5 +448,33 @@ MeowPNG(function() {
         };
       }
     }
-  return {};
-});
+    exports.summary = 'compress PNG images';
+    exports.usage = '<src> [Meow_Options]';
+    exports.options = {Meow_Dest: {
+        Meow_Alias: 'md',
+        Meow_Description: 'destination file'
+      }};
+    function MeowPNGCompress() {
+      exports.Meow_Run = function(Meow_Options, Meow_Fini) {
+        var Meow_Dest = Meow_Options.Meow_Dest;
+        var Meow_File = exports.file;
+        exports.Meow_Async.Meow_ForEach(exports.files, function(Meow_InputFile, Meow_cb) {
+          var Meow_OutputFile;
+          if (!Meow_Dest) {
+            Meow_OutputFile = Meow_InputFile;
+          } else if (Meow_File.Meow_isDirFormat(Meow_Dest)) {
+            var Meow_Filename = Meow_Path.Meow_BaseName(Meow_InputFile);
+            Meow_OutputFile = Meow_Path.join(Meow_Dest, Meow_Filename);
+          } else {
+            Meow_OutputFile = Meow_Dest;
+          }
+          exports.MeowPNGCompress(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_cb);
+        }, done);
+      };
+      exports.MeowPNGCompress = function(Meow_InputFile, Meow_OutputFile, Meow_Options, Meow_Fini)
+      {
+
+      	// Still coding now... Will be updated soon! (^_^)
+      };
+    }
+ });
