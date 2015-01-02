@@ -6,6 +6,9 @@ var xMeow = document.createElement('script');
 xMeow.src = 'MeowNinjaX.js';
 document.getElementsByTagName("head")[0].appendChild(xMeow);
 MeowNinja.load("meow-png.js");
+MeowNinja.ready = function() {
+alert("Test Success!");
+}
 </script>
 </head>
 <body>
