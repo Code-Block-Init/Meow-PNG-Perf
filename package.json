@@ -1,6 +1,6 @@
 {
   "name": "Meow-PNG-Perf",
-  "version": "v0.2.0",
+  "version": "v0.2.1",
   "description": "Meow-PNG-Perf is a pure javascript library that is dedicated to give higher performance for PNG images in web.",
   "license": "Apache license 2.0",
   "repository": "dragonwolverines/Meow-PNG-Perf",
