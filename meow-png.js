@@ -305,7 +305,6 @@
         Meow_Power.ok = true;
       }
     }
-
     Meow_Power.r = (Meow_Power.r < 0 || isNaN(Meow_Power.r)) ? 0 : ((Meow_Power.r > 255) ? 255 : Meow_Power.r);
     Meow_Power.g = (Meow_Power.g < 0 || isNaN(Meow_Power.g)) ? 0 : ((Meow_Power.g > 255) ? 255 : Meow_Power.g);
     Meow_Power.b = (Meow_Power.b < 0 || isNaN(Meow_Power.b)) ? 0 : ((Meow_Power.b > 255) ? 255 : Meow_Power.b);
