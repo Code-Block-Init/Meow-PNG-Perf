@@ -102,6 +102,7 @@
   function Meow_RGBColor(Meow_ColorStr) {
     var Meow_Power = this;
     var document, Meow_Channels;
+    var Meow_Array;
     if(Meow_ColorStr.charAt(0) === '#') {
       Meow_ColorStr = Meow_ColorStr.substr(1, 6);
     }
@@ -326,7 +327,7 @@
       return '#' + r + g + b;
     };
     Meow_Power.getHelpXML = function() {
-      var examples = new Array();
+      var examples = new Meow_Array();
       for(var m = 0; m < Meow_ColorDefns.length; m++) {
         var example = Meow_ColorDefns[m].example;
         for(var m2 = 0; m2 < example.length; m2++) {
